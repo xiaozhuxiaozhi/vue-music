@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <MusicList musictype="21" />
+    <MusicList musictype="25" />
   </div>
 </template>
 
