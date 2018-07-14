@@ -11,7 +11,7 @@ export default {
   name: 'Header',
   data () {
     return {
-      lists:['推荐','排行榜','搜索']
+      
     }
   },
   computed:{

@@ -25,9 +25,9 @@
 	        },
 	        loop:true,
 	        autoplay: {
-                    disableOnInteraction: false,
-                    delay:4000
-                },
+                 disableOnInteraction: false,
+                 delay:4000
+            }
 	      }
 		}
 	}

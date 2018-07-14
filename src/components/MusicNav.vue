@@ -3,13 +3,13 @@
 	<nav>
       <ul>
         <li>
-          <router-link to="/recommend">推荐</router-link>
+          <router-link to="/recommend" exact>推荐</router-link>
         </li>
         <li>
           <router-link to="/rank">排行榜</router-link>
         </li>
         <li>
-          <router-link to="/search">搜索</router-link>
+          <router-link to="/search">K歌金曲</router-link>
         </li>
       </ul>
     </nav>
@@ -22,12 +22,12 @@
 		name:'MusicNav',
 		data(){
 			return {
-
+				
 			}
 		}
 	}
 </script>
-<style type="text/css">
+<style type="text/css" scoped>
 nav{
   width: 100%;
   height: 40px;
@@ -50,5 +50,11 @@ ul li a{
 }
 ul li:nth-child(1){
       border-bottom: 2px solid green
+}
+a.router-link-active {
+  color: red;
+}
+li.router-link-active a {
+  color: red;
 }
 </style>

@@ -7,6 +7,7 @@ import Search from "../pages/Search"
 Vue.use(VueRouter);
 
 export default new VueRouter({
+  linkActiveClass: "active",
   routes: [{
       path: '/',
       name: 'Recommend',
