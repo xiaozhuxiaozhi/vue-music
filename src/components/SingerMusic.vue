@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="musiclist">
-    <div class="panel hotsongs on" v-loading="loading">
-      <ul class="list" >
-        <router-link :key="index" :to="{name:'MusicPlay',params:{songid:item.song_id}}" tag="li" class="song" v-for="(item,index) in musicData.song_list">
+    <div class="panel hotsongs" v-loading.fullscreen.lock="fullscreenLoading">
+      <ul class="list">
+        <router-link :key="index" :to="{name:'MusicPlay',params:{songid:item.song_id}}" tag="li" class="song" v-for="(item,index) in musicData.songlist">
           <div class="poster">
             <img :src="item.pic_big" :alt="item.title">
           </div>
@@ -12,36 +12,28 @@
           </div>
         </router-link>
       </ul>
-      <router-link :to="{name:'Recommend',params:{musictype:musictype}}" tag="div" class="more-songs">
-          查看该榜单&gt;
-      </router-link>
+
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name:"musiclist",
+  name:"singermusic",
   data(){
     return{
-      loading:true,
+      fullscreenLoading:true,
       musicData:{
-        song_list:[]
+        songlist:[]
       }
     }
   },
-  props:{
-    musictype:{
-      type:String,
-      default:"1"
-    }
-  },
   created(){
-    const musiclistUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.billboard.billList&type="+this.musictype+"&size=5&offset=0"
+    const musiclistUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.artist.getSongList&tinguid="+ this.$route.params.singerid +"&limits=20&use_cluster=1&order=2"
     this.$axios.get(musiclistUrl)
     .then(res => {
       this.musicData = res.data
-      this.loading = false
+      this.fullscreenLoading = false
     })
     .catch(error =>{
       console.log(error);
@@ -71,7 +63,6 @@ export default {
     -webkit-hyphens: auto;
     hyphens: auto;
     word-break: break-all;
-    min-height: 330px;
 }
 
 .panel .list li {
@@ -126,14 +117,5 @@ export default {
     font-size: 12px;
     color: #999;
     margin-top: 2px;
-}
-
-.more-songs{
-  color: #999;
-  margin-top: 9px;
-  font-size: 12px;
-  text-align: center;
-  height: 32px;
-  line-height: 32px;
 }
 </style>

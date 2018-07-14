@@ -1,5 +1,5 @@
 <template>
-	<div class="silder">
+  <div class="silder">
     <swiper :options="swiperOption">
       <swiper-slide>
         <img src="../assets/banner/b1.jpg" alt="">
@@ -15,29 +15,28 @@
   </div>
 </template>
 <script type="text/javascript">
-	export default {
-		name:"slider",
-		data(){
-			return{
-			swiperOption: {
-	        pagination: {
-	          el: '.swiper-pagination',
-	        },
-	        loop:true,
-	        autoplay: {
+  export default {
+    name:"slider",
+    data(){
+      return{
+      swiperOption: {
+          pagination: {
+            el: '.swiper-pagination',
+          },
+          loop:true,
+          autoplay: {
                  disableOnInteraction: false,
                  delay:4000
             }
-	      }
-		}
-	}
+        }
+    }
+  }
 }
 </script>
 <style type="text/css">
-	img{
-	border: none;
+  img{
+  border: none;
     max-width: 100%;
     vertical-align: middle;
-
-	}
+  }
 </style>

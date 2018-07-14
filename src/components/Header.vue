@@ -15,7 +15,6 @@ export default {
     }
   },
   computed:{
-
   }
 }
 </script>
@@ -39,5 +38,4 @@ export default {
   background: url('https://y.gtimg.cn/mediastyle/mobile/yqq_v5/img/logo.png?max_age=19830212&d=20151105145423') no-repeat;
   background-size: contain;
 }
-
 </style>

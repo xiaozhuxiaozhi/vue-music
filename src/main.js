@@ -1,20 +1,18 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import VueRouter from 'vue-router'
 import App from './App'
 import router from './routers'
-import Axios from 'axios'
+import Axios from "axios"
 import qs from "qs"
-import { Loading } from 'element-ui'
+import { Loading } from "element-ui"
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'swiper/dist/css/swiper.css'
-Vue.use(VueRouter);
-Vue.use(VueAwesomeSwiper);
-Vue.use(Loading.directive);
-Vue.prototype.$axios = Axios;
-Vue.prototype.HOST = '/baidu_music_api';
-Vue.prototype.$loading = Loading.service;
+Vue.use(VueAwesomeSwiper)
+Vue.use(Loading.directive)
+Vue.prototype.$axios = Axios
+Vue.prototype.HOST = '/baidu_music_api'
+Vue.prototype.$loading = Loading.service
 
 // 添加请求拦截器
 Axios.interceptors.request.use(function(config) {
@@ -38,12 +36,10 @@ Axios.interceptors.response.use(function(response) {
 
 Vue.config.productionTip = false
 
-
-
 /* eslint-disable no-new */
 new Vue({
-  router,
   el: '#app',
+  router,
   components: { App },
   template: '<App/>'
 })

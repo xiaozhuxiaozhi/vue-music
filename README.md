@@ -1,21 +1,22 @@
-# vue-demo
-
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
+# Vue音乐播放器
+这是一个基于Vue+axios+百度音乐接口的音乐项目
+## 安装
+<pre><code>
+cd L20_VueMusic
 npm install
-
-# serve with hot reload at localhost:8080
 npm run dev
+</code></pre>
 
-# build for production with minification
-npm run build
+## 项目功能
+1. 榜单
+2. 搜索
+3. 播放
+4. 歌词
+5. 推荐
 
-# build for production and view the bundle analyzer report
-npm run build --report
-```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 使用技术
+- Vue2.0
+- Axios
+- Swiper
+- 自定义组件
+- 百度音乐接口

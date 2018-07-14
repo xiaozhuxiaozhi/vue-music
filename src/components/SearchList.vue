@@ -1,49 +1,44 @@
 <template lang="html">
-  <div class="musiclist">
-    <div class="panel hotsongs on" v-loading="loading">
-      <ul class="list" >
-        <router-link :key="index" :to="{name:'MusicPlay',params:{songid:item.song_id}}" tag="li" class="song" v-for="(item,index) in musicData.song_list">
-          <div class="poster">
-            <img :src="item.pic_big" :alt="item.title">
-          </div>
+  <div class="searchlist">
+    <div class="panel hotsongs" v-loading.fullscreen.lock="fullscreenLoading">
+      <ul class="list">
+        <router-link :key="index" :to="{name:'MusicPlay',params:{songid:item.songid}}" tag="li" class="song" v-for="(item,index) in musicData.song">
           <div class="info">
-              <div class="name">{{ item.title }}</div>
-              <div class="author">{{ item.author }}</div>
+              <div class="name">{{ item.songname }}</div>
+              <div class="author">{{ item.artistname }}</div>
           </div>
         </router-link>
       </ul>
-      <router-link :to="{name:'Recommend',params:{musictype:musictype}}" tag="div" class="more-songs">
-          查看该榜单&gt;
-      </router-link>
+
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name:"musiclist",
+  name:"searchlist",
   data(){
     return{
-      loading:true,
+      fullscreenLoading:true,
       musicData:{
-        song_list:[]
+        songlist:[]
       }
     }
   },
   props:{
-    musictype:{
+    content:{
       type:String,
-      default:"1"
+      default:""
     }
   },
   created(){
-    const musiclistUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.billboard.billList&type="+this.musictype+"&size=5&offset=0"
-    this.$axios.get(musiclistUrl)
+    const searchUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.search.catalogSug&query="+this.content
+    this.$axios.get(searchUrl)
     .then(res => {
       this.musicData = res.data
-      this.loading = false
+      this.fullscreenLoading = false
     })
-    .catch(error =>{
+    .catch(error => {
       console.log(error);
     })
   }
@@ -52,7 +47,7 @@ export default {
 
 <style scoped>
 
-.musiclist{
+.searchlist{
   background-color: #fff;
   margin-top: 10px;
   padding: 10px 17px;
@@ -71,7 +66,6 @@ export default {
     -webkit-hyphens: auto;
     hyphens: auto;
     word-break: break-all;
-    min-height: 330px;
 }
 
 .panel .list li {
@@ -128,12 +122,4 @@ export default {
     margin-top: 2px;
 }
 
-.more-songs{
-  color: #999;
-  margin-top: 9px;
-  font-size: 12px;
-  text-align: center;
-  height: 32px;
-  line-height: 32px;
-}
 </style>
