@@ -11,6 +11,6 @@ before_install:
 - echo -e "Host 47.92.93.223\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
 - scp -r dist.zip root@47.92.93.223:/root/www/
-- ssh root@47.92.93.223 'cd /root/www  unzip dist.zip'
+- ssh root@47.92.93.223 'cd /root/www/ &&  unzip dist.zip'
 script:
 - npm build
