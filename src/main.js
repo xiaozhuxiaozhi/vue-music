@@ -12,7 +12,7 @@ import 'swiper/dist/css/swiper.css'
 Vue.use(VueAwesomeSwiper)
 Vue.use(Loading.directive)
 Vue.prototype.$axios = Axios
-Vue.prototype.HOST = '/baidu_music_api'
+Vue.prototype.HOST = 'http://tingapi.ting.baidu.com'
 Vue.prototype.$loading = Loading.service
 
 // 添加请求拦截器
