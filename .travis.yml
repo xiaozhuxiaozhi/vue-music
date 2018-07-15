@@ -13,3 +13,4 @@ after_success:
 - scp -r dist.zip root@47.92.93.223:/root/www/
 script:
 - npm build
+- unzip buid.zip
