@@ -29,7 +29,7 @@ export default {
     }
   },
   created(){
-    const musiclistUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.artist.getSongList&tinguid="+ this.$route.params.singerid +"&limits=20&use_cluster=1&order=2"
+    const musiclistUrl = this.$API + "/v1/restserver/ting?method=baidu.ting.artist.getSongList&tinguid="+ this.$route.params.singerid +"&limits=20&use_cluster=1&order=2"
     this.$axios.get(musiclistUrl)
     .then(res => {
       this.musicData = res.data

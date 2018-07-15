@@ -26,7 +26,7 @@ export default {
     }
   },
   created(){
-    const SingerUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.artist.getInfo&tinguid="+this.singerid
+    const SingerUrl = this.$API + "/v1/restserver/ting?method=baidu.ting.artist.getInfo&tinguid="+this.singerid
     this.$axios.get(SingerUrl)
     .then(res => {
       this.singerInfo = res.data

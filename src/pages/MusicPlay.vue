@@ -80,7 +80,7 @@ export default {
     this.removeEventListeners()
   },
   created(){
-    const playUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.song.play&songid="+this.$route.params.songid
+    const playUrl = this.$API + "/v1/restserver/ting?method=baidu.ting.song.play&songid="+this.$route.params.songid
     this.$axios.get(playUrl)
     .then(res => {
       this.playData = res.data
