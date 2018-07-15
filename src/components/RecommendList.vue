@@ -46,7 +46,7 @@ export default {
   methods:{
     fetchData(){
       this.loading = true
-      const musiclistUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.billboard.billList&type="+this.musictype+"&size=20&offset="+this.offsetNum
+      const musiclistUrl = this.$API + "/v1/restserver/ting?method=baidu.ting.billboard.billList&type="+this.musictype+"&size=20&offset="+this.offsetNum
       this.$axios.get(musiclistUrl)
       .then(res => {
         this.musicData = this.musicData.concat(res.data.song_list)
