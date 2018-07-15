@@ -10,9 +10,7 @@ before_install:
 - chmod 600 ~/.ssh/id_rsa
 - echo -e "Host 47.92.93.223\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
 after_success:
-- scp -r dist.zip root@47.92.93.223:/root/www/  unzip buid.zip
-- ssh root@47.92.93.223
-- cd /root/www/
-- unzip dist.zip
+- scp -r dist.zip root@47.92.93.223:/root/www/
+- ssh root@47.92.93.223 'cd /root/www  unzip dist.zip'
 script:
 - npm build
