@@ -11,13 +11,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      // "/baidu_music_api": {
-      //   target: "http://tingapi.ting.baidu.com",
-      //   changeOrigin: true,
-      //   pathRewrite: {
-      //     '^/baidu_music_api': ''
-      //   }
-      // }
+      "/baidu_music_api": {
+        target: "http://tingapi.ting.baidu.com",
+        changeOrigin: true,
+        pathRewrite: {
+          '^/baidu_music_api': ''
+        }
+      }
     },
 
     // Various Dev Server settings
@@ -51,7 +51,7 @@ module.exports = {
     // Paths
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
+    assetsPublicPath: './',
     /**
      * Source Maps
      */

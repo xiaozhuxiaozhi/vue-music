@@ -33,7 +33,7 @@ export default {
     }
   },
   created(){
-    const lrcUrl = this.$API + "/v1/restserver/ting?method=baidu.ting.song.lry&songid="+this.songid
+    const lrcUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.song.lry&songid="+this.songid
     this.$axios.get(lrcUrl)
     .then(res => {
       var lyrics = res.data.lrcContent.split("\n");

@@ -37,7 +37,7 @@ export default {
     }
   },
   created(){
-    const musiclistUrl = this.$API + "/v1/restserver/ting?method=baidu.ting.billboard.billList&type="+this.musictype+"&size=5&offset=0"
+    const musiclistUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.billboard.billList&type="+this.musictype+"&size=5&offset=0"
     this.$axios.get(musiclistUrl)
     .then(res => {
       this.musicData = res.data

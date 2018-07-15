@@ -32,7 +32,7 @@ export default {
     }
   },
   created(){
-    const searchUrl = this.$API + "/v1/restserver/ting?method=baidu.ting.search.catalogSug&query="+this.content
+    const searchUrl = this.HOST + "/v1/restserver/ting?method=baidu.ting.search.catalogSug&query="+this.content
     this.$axios.get(searchUrl)
     .then(res => {
       this.musicData = res.data
